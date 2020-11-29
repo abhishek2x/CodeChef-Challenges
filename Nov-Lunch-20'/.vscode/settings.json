@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "valarray": "cpp",
+        "random": "cpp"
+    }
+}
