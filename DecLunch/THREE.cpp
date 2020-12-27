@@ -3,7 +3,7 @@
 */
 
 #include <bits/stdc++.h>
-using namespace std;
+using namespace std; 
 #define ll long long int
 
 int main(){
@@ -15,30 +15,16 @@ int main(){
   while(t--) {
     string s; cin >> s;
     int a[26] = {0};
+    int X = s.length()/3;
 
     for (int i = 0; i < s.length(); i++)
       a[s[i]-'a']++;
-    
+
+    int P=0;
     for (int i = 0; i < 26; i++)
-      cout << a[i] << ", ";
+      P+=a[i]/2;
     
-    ll ones=0, twos=0, ans=0;
-    for (int i = 0; i < 26; i++)
-    {
-      if(a[i] >= 3){
-        ans += a[i]/3;
-        a[i] /= 3;
-      }
-      if(a[i] == 2){
-        twos++;
-        a[i] -= 2;
-      }
-      if(a[i] == 1){
-        ones++;
-        a[i] -= 1;
-      }
-    }
-    ans += min(twos, ones);
+    int ans = min(X, P);
     cout << ans << "\n";
   }
 
