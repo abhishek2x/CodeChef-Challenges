@@ -14,39 +14,37 @@ int main(){
   ll t; cin >> t;
   while(t--){
     ll n, k, x, y; cin >> n >> k >> x >> y;
-
+    
     k = k%4;
-    char ch = 'L';
+    if(k==0) k+=4;
 
-    while(k>0) {
-      if((x == 0 && y == 0) || 
-        (x == 0 && y == n) || 
-        (x == n && y == 0) || 
-        (x == n && y == n)) 
-      {
-        break;
+    if(x > y) {
+      // below x = y
+      if(k == 1) {
+        cout << n << " " << y+(n-x) << "\n";
+      } else if(k == 2) {
+        cout << y+n-x << " " << n << "\n";
+      } else if(k == 3) {
+        cout << 0 << " " << x-y << "\n";
+      } else if(k == 4) {
+        cout << x-y << " " << 0 << "\n";
       }
-
-      int xNew, yNew;
-      if(ch == 'L'){
-        yNew = y + (n-x); xNew = n;
-        ch = 'T';
-      } else if(ch == 'T'){
-        xNew = y; yNew = x;
-        ch = 'R';
-      } else if(ch == 'R'){
-        yNew = n-x; xNew = 0;
-        ch = 'B';
-      } else if(ch == 'B'){
-        yNew = 0; xNew = y;
-        ch = 'L';
+    } else if(x == y) {
+      cout << n << " " << n << "\n";
+    } else if(x < y) {
+      // above x = y
+      if(k == 1) {
+        cout << x+(n-y) << " " << n << "\n";
+      } else if(k == 2) {
+        cout << n << " " << x+(n-y) << "\n";
+      } else if(k == 3) {
+        cout << y-x << " " << 0 << "\n";
+      } else if(k == 4) {
+        cout << 0 << " " << y-x << "\n";
       }
-      x = xNew; y = yNew; k--;
     }
-
-    cout << x << " " << y << "\n";
   }
+
 
   return 0;
 }
- 

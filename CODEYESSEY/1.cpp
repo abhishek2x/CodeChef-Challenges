@@ -11,9 +11,15 @@ int main(){
   ios :: sync_with_stdio(false);
   cin.tie(0);
 
-  double a=5, b=3;
+  ll t;
+  cin >> t;
 
-  cout << ceil(a/2);
+  while(t--) {
+    ll n;
+    cin >> n;
+
+    cout << (n-(n/2)) - ((n-(n/2))/2) << "\n";
+  }
 
   return 0;
 }
