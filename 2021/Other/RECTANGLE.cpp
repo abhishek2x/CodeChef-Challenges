@@ -21,10 +21,12 @@ bool getDone() {
   int colMin=INT_MAX;
   int rowMax=INT_MIN;
   int colMax=INT_MIN;
+  int cnt=0;
 
   for (int i = 0; i < N; i++)
     for (int k = 0; k < M; k++)
       if(arr[i][k] == 1) {
+        cnt++;
         rowMax = max(rowMax, i);
         colMax = max(colMax, k);
         rowMin = min(rowMin, i);
@@ -39,13 +41,15 @@ bool getDone() {
   for(int i=rowMin; i<=rowMax; i++) {
     for(int j=colMin; j<=colMax; j++) {
       if(arr[i][j] == 0){
-        // cout << "Caught: " << i << ", " << j << "\n";
         return false;
+      } else {
+        cnt--;
       }
     }
   }
 
-  return true;
+  if(cnt == 0) return true;
+  else return false;
 
 }
 
