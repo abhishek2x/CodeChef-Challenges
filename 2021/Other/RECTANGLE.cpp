@@ -32,6 +32,7 @@ bool getDone() {
         rowMin = min(rowMin, i);
         colMin = min(colMin, k);
       }
+      
   // cout << "rowMin: " << rowMin << "\n";
   // cout << "rowMax: " << rowMax << "\n";
   // cout << "colMin: " << colMin << "\n";
