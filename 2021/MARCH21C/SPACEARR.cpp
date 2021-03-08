@@ -23,7 +23,7 @@ void solve() {
   else 
     cout << "Second\n";
 }
-IRSTXOR
+
 int main(){
 
   ios :: sync_with_stdio(false);
