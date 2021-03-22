@@ -10,18 +10,16 @@ void solve() {
   string s; cin >> s;
   string ans="";
   
-  for(int i=0; i<s.length(); i++) {
-    // cout << ans << " ";
-    if(s[i] == 'p' && i<=s.length()-5){
-      string temp="";
-      for(int j=i; j<i+5; j++)  temp += s[j];
-      if(temp == "party") {
-        i+=5;
-        ans += "pawri";
-      } else ans+=s[i];
-    } else ans += s[i];
+  for(int i=0; i+4<s.length(); i++) {
+    string temp = s.substr(i, 5);
+    if(temp == "party"){
+      s[i+2] = 'w';
+      s[i+3] = 'r';
+      s[i+4] = 'i'; 
+      i+=4;
+    }
   }
-  cout << ans << "\n";
+  cout << s << "\n";
 }
 
 int main(){
@@ -29,6 +27,8 @@ int main(){
   ios :: sync_with_stdio(false);
   cin.tie(0);
   
+  int t; cin >> t;
+  while(t--)
   solve();
 
   return 0;

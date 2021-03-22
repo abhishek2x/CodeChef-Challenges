@@ -7,16 +7,18 @@ using namespace std;
 #define ll long long int
 
 void solve() {
-  ll n, m, k; cin >> n >> m >> k;
-  ll ans=0;
+  int n, m, k; cin >> n >> m >> k;
+  int ans=0;
 
-  for(int i=1; i<n+1/2; i++)
-    for(int j=1; j<=i; j++)
-      if(true){
-        cout << i+j+k << " ";
-        ans ^= (i+j+k);
-      }
-      
+  for(int i=1; i<=n; i++)
+    if(min(i, m)% 2) 
+      ans ^= (1+i+k);
+
+  for(int j=2; j<=m; j++)
+    if(min(n, m-j+1)%2) 
+      ans ^= (n+j+k);
+
+ 
   cout << ans << "\n";
 }
 
